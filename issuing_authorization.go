@@ -129,6 +129,18 @@ type IssuingAuthorizationListParams struct {
 	Status       *string           `form:"status"`
 }
 
+// IssuingAuthorizationMerchantData is the resource representing merchant data on Issuing APIs.
+type IssuingAuthorizationMerchantData struct {
+	Category   string `json:"category"`
+	City       string `json:"city"`
+	Country    string `json:"country"`
+	Name       string `json:"name"`
+	NetworkID  string `json:"network_id"`
+	PostalCode string `json:"postal_code"`
+	State      string `json:"state"`
+	URL        string `json:"url"`
+}
+
 // IssuingAuthorizationPendingRequest is the resource representing details about the pending authorization request.
 type IssuingAuthorizationPendingRequest struct {
 	Amount               int64    `json:"amount"`
@@ -177,7 +189,7 @@ type IssuingAuthorization struct {
 	Livemode            bool                                    `json:"livemode"`
 	MerchantAmount      int64                                   `json:"merchant_amount"`
 	MerchantCurrency    Currency                                `json:"merchant_currency"`
-	MerchantData        *IssuingAuthoriationMerchantData        `json:"merchant_data"`
+	MerchantData        *IssuingAuthorizationMerchantData       `json:"merchant_data"`
 	Metadata            map[string]string                       `json:"metadata"`
 	Object              string                                  `json:"object"`
 	PendingRequest      *IssuingAuthorizationPendingRequest     `json:"pending_request"`
@@ -186,18 +198,6 @@ type IssuingAuthorization struct {
 	Transactions        []*IssuingTransaction                   `json:"transactions"`
 	VerificationData    *IssuingAuthorizationVerificationData   `json:"verification_data"`
 	Wallet              IssuingAuthorizationWalletType          `json:"wallet"`
-}
-
-// IssuingAuthoriationMerchantData is the resource representing merchant data on Issuing APIs.
-type IssuingAuthoriationMerchantData struct {
-	Category   string `json:"category"`
-	City       string `json:"city"`
-	Country    string `json:"country"`
-	Name       string `json:"name"`
-	NetworkID  string `json:"network_id"`
-	PostalCode string `json:"postal_code"`
-	State      string `json:"state"`
-	URL        string `json:"url"`
 }
 
 // IssuingAuthorizationList is a list of issuing authorizations as retrieved from a list endpoint.
