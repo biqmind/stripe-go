@@ -35,7 +35,6 @@ func TestIssuingCardholderNew(t *testing.T) {
 				PostalCode: stripe.String("90210"),
 				State:      stripe.String("CA"),
 			},
-			Name: stripe.String("billing name"),
 		},
 		Individual: &stripe.IssuingCardholderIndividualParams{
 			DOB: &stripe.IssuingCardholderIndividualDOBParams{

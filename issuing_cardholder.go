@@ -34,9 +34,6 @@ type IssuingCardholderStatus string
 const (
 	IssuingCardholderStatusActive   IssuingCardholderStatus = "active"
 	IssuingCardholderStatusInactive IssuingCardholderStatus = "inactive"
-
-	// This value is deprecated
-	IssuingCardholderStatusPending IssuingCardholderStatus = "pending"
 )
 
 // IssuingCardholderType is the type of an issuing cardholder.
@@ -46,17 +43,11 @@ type IssuingCardholderType string
 const (
 	IssuingCardholderTypeCompany    IssuingCardholderType = "company"
 	IssuingCardholderTypeIndividual IssuingCardholderType = "individual"
-
-	// This value is deprecated. Use IssuingCardholderTypeCompany instead
-	IssuingCardholderTypeBusinessEntity IssuingCardholderType = "business_entity"
 )
 
 // IssuingBillingParams is the set of parameters that can be used for billing with the Issuing APIs.
 type IssuingBillingParams struct {
 	Address *AddressParams `form:"address"`
-
-	// This parameter is deprecated
-	Name *string `form:"name"`
 }
 
 // IssuingCardholderCompanyParams represents additional information about a
@@ -124,10 +115,6 @@ type IssuingCardholderParams struct {
 	SpendingControls *IssuingCardholderSpendingControlsParams `form:"spending_controls"`
 	Status           *string                                  `form:"status"`
 	Type             *string                                  `form:"type"`
-
-	// The following parameters are deprecated
-	IsDefault             *bool                        `form:"is_default"`
-	AuthorizationControls *AuthorizationControlsParams `form:"authorization_controls"`
 }
 
 // IssuingCardholderListParams is the set of parameters that can be used when listing issuing cardholders.
@@ -139,18 +126,11 @@ type IssuingCardholderListParams struct {
 	PhoneNumber  *string           `form:"phone_number"`
 	Status       *string           `form:"status"`
 	Type         *string           `form:"type"`
-
-	// The property is considered deprecated.
-	// TODO remove in the next major version
-	IsDefault *bool `form:"is_default"`
 }
 
 // IssuingBilling is the resource representing the billing hash with the Issuing APIs.
 type IssuingBilling struct {
 	Address *Address `json:"address"`
-
-	// This property is deprecated
-	Name string `json:"name"`
 }
 
 // IssuingCardholderRequirements contains the verification requirements for the cardholder.
@@ -229,9 +209,6 @@ type IssuingCardholder struct {
 	SpendingControls *IssuingCardholderSpendingControls `json:"spending_controls"`
 	Status           IssuingCardholderStatus            `json:"status"`
 	Type             IssuingCardholderType              `json:"type"`
-
-	// The following property is deprecated, use SpendingControls instead
-	AuthorizationControls *IssuingCardAuthorizationControls `json:"authorization_controls"`
 }
 
 // IssuingCardholderList is a list of issuing cardholders as retrieved from a list endpoint.
