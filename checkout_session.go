@@ -125,6 +125,7 @@ type CheckoutSessionParams struct {
 	SubscriptionData          *CheckoutSessionSubscriptionDataParams          `form:"subscription_data"`
 	SubmitType                *string                                         `form:"submit_type"`
 	SuccessURL                *string                                         `form:"success_url"`
+	Metadata                  map[string]string                               `form:"metadata"`
 }
 
 // CheckoutSessionListParams is the set of parameters that can be
